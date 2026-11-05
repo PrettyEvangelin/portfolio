@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pretty Evangelin | AI, ML & GenAI with Python</title>
+<meta name="description" content="Portfolio of Pretty Evangelin: Computer Science graduate building with Python across AI, machine learning, GenAI and data.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23ffe27a'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial' font-weight='700' text-anchor='middle' fill='%231f1d16'%3EPE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{--white:#fff;--cream:#fffbe8;--yellow:#ffe27a;--yellow-soft:#fff2b8;--ink:#1f1d16;--muted:#625d4c;--line:#ece4bd;--py:#2f6ea5;--green:#2e7d4f;
+--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"DM Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.08;letter-spacing:-.02em}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--py);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 20px var(--display);text-decoration:none}
+.logo i{display:inline-block;width:12px;height:12px;background:var(--yellow);border:2px solid var(--ink);border-radius:50%;margin-left:4px}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+nav a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+nav a.on{background:var(--yellow);color:var(--ink)}
+.burger{display:none;background:none;border:1.5px solid var(--ink);border-radius:8px;padding:7px 12px;font:500 15px var(--body);cursor:pointer}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--cream),var(--white));padding:44px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(36px,5vw,60px);font-weight:800;line-height:1.05}
+.hero h1 span{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+.lead{font-size:18px;color:var(--muted);max-width:50ch;margin:16px 0 20px}
+.into{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.into span{background:var(--yellow-soft);border:1.5px solid var(--yellow);border-radius:999px;padding:4px 14px;font-weight:500;font-size:15px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font:500 16px var(--body);text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:var(--white);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.btn.fill{background:var(--yellow)}
+.code{background:var(--ink);color:#f3efdc;border-radius:16px;box-shadow:12px 12px 0 var(--yellow);font:400 15px/1.75 var(--mono);overflow:hidden}
+.code .top{display:flex;gap:7px;padding:12px 16px;background:#2b2920}
+.code .top b{width:11px;height:11px;border-radius:50%;background:#6b6650}
+.code .top em{margin-left:auto;font-style:normal;font-size:13px;color:#a8a28a}
+.code pre{margin:0;padding:18px 22px;overflow-x:auto}
+.k{color:#ffd24d}.s{color:#9fe0b0}.f{color:#8cc4f5}.c{color:#8c8670}
+
+/* sections */
+section{padding:56px 0}
+section.alt{background:var(--cream)}
+.head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.head h2{font-size:clamp(28px,4vw,40px);font-weight:700}
+.head p{color:var(--muted);margin:0}
+
+/* story */
+.story{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.chap{background:var(--white);border:2px solid var(--ink);border-radius:16px;padding:22px}
+.chap .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);font:800 15px var(--display);margin-bottom:12px}
+.chap h3{font-size:20px;margin-bottom:8px}
+.chap p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+.story-end{margin:26px 0 0;font:700 clamp(20px,2.6vw,26px)/1.3 var(--display);max-width:40ch}
+.story-end span{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+
+/* projects */
+.proj{background:var(--white);border:2px solid var(--ink);border-radius:20px;padding:26px;display:grid;grid-template-columns:1fr 1.2fr;gap:32px;margin-bottom:20px}
+.proj .tag{display:inline-block;background:var(--yellow-soft);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:500;margin-bottom:12px}
+.proj h3{font-size:26px}
+.proj .sub{color:var(--muted);margin:10px 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.proj code{font:400 14px var(--mono);background:var(--yellow-soft);border-radius:5px;padding:1px 6px}
+.chips span{border:1.5px solid var(--line);background:var(--cream);border-radius:8px;padding:2px 10px;font:400 13.5px var(--mono)}
+.proj ul{margin:0;padding-left:20px}
+.proj li{margin-bottom:9px}
+.proj li::marker{color:var(--py)}
+.gh{margin-top:6px}
+
+/* skills */
+.py{background:var(--ink);color:#f3efdc;border-radius:20px;padding:24px 28px;margin-bottom:16px}
+.py h3{font-size:24px;color:var(--yellow);margin-bottom:6px}
+.py p{margin:0 0 14px;color:#cfc9b0}
+.py .chips span{background:#2b2920;border-color:#45412f;color:#f3efdc;font-size:14.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--white);border:1.5px solid var(--line);border-radius:16px;padding:22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+
+/* experience */
+.job{display:grid;grid-template-columns:200px 1fr;gap:28px}
+.job time{display:inline-block;background:var(--yellow);border-radius:8px;padding:2px 10px;font-weight:500;font-size:15px;margin-top:8px}
+.job h3{font-size:26px}
+.job ul{padding-left:20px;margin:12px 0 0}
+.job li{margin-bottom:10px}
+.job li::marker{color:var(--py)}
+
+/* education */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.two h3{font-size:22px;margin-bottom:10px}
+.two ul{padding-left:20px;margin:0}
+.two li{margin-bottom:8px}
+.two li::marker{color:var(--py)}
+.two p{margin:0 0 24px;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--yellow);text-align:center}
+.contact h2{font-size:clamp(30px,5vw,48px);font-weight:800;margin-bottom:12px}
+.contact p{max-width:48ch;margin:0 auto 22px;font-size:18px}
+.contact .btn{background:var(--white)}
+.contact .btn.dark{background:var(--ink);color:var(--white)}
+.contact .btn.dark:hover{box-shadow:3px 3px 0 var(--white)}
+.links{margin-top:26px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-weight:500}
+footer{padding:24px 0 36px;text-align:center;color:var(--muted);font-size:15px}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;transition:transform .25s;z-index:30}
+#toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:860px){
+.story{grid-template-columns:1fr 1fr}
+.hero .wrap,.proj,.job,.two{grid-template-columns:1fr}
+.hero .wrap{gap:44px}
+.burger{display:block}
+nav{position:absolute;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--line);display:none;padding:10px 24px 16px}
+nav.open{display:block}
+nav ul{flex-direction:column}
+section{padding:44px 0}
+.proj{padding:20px}
+}
+@media(max-width:520px){.story{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,#toast{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="#top">Pretty Evangelin<i></i></a>
+<button class="burger" id="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav id="menu" aria-label="Main">
+<ul>
+<li><a href="#story">Story</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Toolkit</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main id="top">
+<div class="hero">
+<div class="wrap">
+<div>
+<h1>Building with Python across <span>AI, ML and GenAI</span></h1>
+<p class="lead">I’m Pretty Evangelin, a Computer Science graduate. I like turning data into working things: models, APIs, dashboards and RAG pipelines, with Python at the centre.</p>
+<div class="into" aria-label="Interests"><span>AI and ML</span><span>GenAI and RAG</span><span>Data analytics</span><span>Backend APIs</span></div>
+<div class="btns">
+<a class="btn fill" href="#projects">View projects</a>
+<a class="btn" href="#contact">Get in touch</a>
+</div>
+</div>
+<div class="code" aria-label="Profile written as a Python class">
+<div class="top"><b></b><b></b><b></b><em>profile.py</em></div>
+<pre><span class="k">class</span> <span class="f">PrettyEvangelin</span>:
+    language = <span class="s">"Python"</span>
+    interests = [<span class="s">"AI"</span>, <span class="s">"ML"</span>,
+                 <span class="s">"GenAI"</span>, <span class="s">"Data"</span>]
+    loves = [<span class="s">"RAG"</span>, <span class="s">"APIs"</span>,
+             <span class="s">"dashboards"</span>]
+    published = <span class="s">"IJSREM"</span>
+
+    <span class="k">def</span> <span class="f">open_to</span>(self):
+        <span class="k">return</span> <span class="s">"anything built on Python"</span></pre>
+</div>
+</div>
+</div>
+
+<section id="story" class="alt">
+<div class="wrap">
+<div class="head"><h2>How I got here</h2><p>A short story, in four chapters.</p></div>
+<div class="story">
+<div class="chap"><span class="n">1</span><h3>It started with questions</h3><p>During my Computer Science degree at PES Institute of Technology and Management, what I enjoyed most was making data answer something. SQL and Python were the first tools that let me do it.</p></div>
+<div class="chap"><span class="n">2</span><h3>Then I wanted it to predict</h3><p>I moved from reading data to learning from it: scikit-learn, XGBoost and TensorFlow. That led to a multimodal lie-detection system that reads voice, face and text together, and a paper in IJSREM.</p></div>
+<div class="chap"><span class="n">3</span><h3>Then I wanted people to use it</h3><p>A model nobody can reach isn’t much use. So I learned FastAPI, Docker and AWS, and as an intern I turned raw business data into Power BI dashboards that teams could act on.</p></div>
+<div class="chap"><span class="n">4</span><h3>Now it talks back</h3><p>My latest build lets non-technical people ask a campaign database questions in plain English, using RAG. That’s the space I want to keep exploring.</p></div>
+</div>
+<p class="story-end">I’m looking for work where Python meets <span>AI, ML or GenAI</span>, and I’m happy to learn the rest on the way.</p>
+</div>
+</section>
+
+<section id="projects">
+<div class="wrap">
+<div class="head"><h2>Projects</h2><p>Four systems built in Python, from data to deployment.</p></div>
+
+<article class="proj">
+<div>
+<span class="tag">Analytics and RAG</span>
+<h3>Campaign Intelligence Platform</h3>
+<p class="sub">An analytics and reporting system with a natural-language query layer.</p>
+<div class="chips"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>FastAPI</span><span>Streamlit</span><span>Docker</span><span>FAISS</span><span>Sentence Transformers</span></div>
+<!-- TODO: replace the href below with your real repository link -->
+<a class="btn gh" href="https://github.com/PrettyEvangelin/campaign-intelligence-platform" target="_blank" rel="noopener">GitHub repository</a>
+</div>
+<ul>
+<li>Built an end-to-end platform on a PostgreSQL model with 8 core tables, turning 50,000 bid requests and 14,964 impressions into 14,901 campaign-performance records.</li>
+<li>Automated a Streamlit dashboard for CTR, CPM, CVR, CPA and ROAS with date-range and campaign filters, so stakeholders can self-serve insights.</li>
+<li>Implemented a RAG layer (Sentence Transformers and FAISS, 384-dimension embeddings) that lets non-technical users query performance in plain language.</li>
+</ul>
+</article>
+
+<article class="proj">
+<div>
+<span class="tag">Published research</span>
+<h3>AI-Driven Cloud-Powered Lie Detection</h3>
+<p class="sub">A multimodal deception-detection system, published in IJSREM.</p>
+<div class="chips"><span>Python</span><span>TensorFlow</span><span>XGBoost</span><span>FastAPI</span><span>AWS S3</span><span>MongoDB Atlas</span><span>React</span></div>
+<!-- TODO: replace the href below with your Vercel live demo link -->
+<a class="btn gh" href="https://veri-cloud.vercel.app/" target="_blank" rel="noopener">Live demo</a>
+</div>
+<ul>
+<li>Combined three models, each validated on its own: BiLSTM for voice (95%), XGBoost for facial cues (93%) and Logistic Regression for text (96%).</li>
+<li>Designed a hybrid fusion framework of weighted ensemble and rule-based logic that reaches 92.3% overall accuracy, more robust than any single signal.</li>
+<li>Built a FastAPI backend deployed on AWS (S3) with MongoDB Atlas and Render, serving REST endpoints to a React UI for live monitoring.</li>
+</ul>
+</article>
+<article class="proj">
+<div>
+<span class="tag">Healthcare ML</span>
+<h3>Healthcare Readmission Prediction</h3>
+<p class="sub">Predicts the chance of a patient being readmitted within 30 days of discharge.</p>
+<div class="chips"><span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>XGBoost</span><span>Streamlit</span><span>Jupyter</span></div>
+<!-- TODO: replace the href below with your real repository link -->
+<a class="btn gh" href="https://github.com/PrettyEvangelin/Healthcare-Readmission" target="_blank" rel="noopener">GitHub repository</a>
+</div>
+<ul>
+<li>Cleaned a diabetic patient dataset of clinical and hospital records: handled missing values, selected features and encoded categorical variables.</li>
+<li>Trained an XGBoost classifier and turned its probabilities into Low, Medium and High risk levels, evaluated with accuracy, precision, recall and F1-score.</li>
+<li>Built a Streamlit app where users enter patient details with input fields and sliders and get an instant risk prediction.</li>
+<li>A decision-support prototype for early risk identification and resource planning, not a substitute for clinical assessment.</li>
+</ul>
+</article>
+
+<article class="proj">
+<div>
+<span class="tag">Fintech and compliance</span>
+<h3>Compliance Orchestration Prototype</h3>
+<p class="sub">A small backend that screens a name against sanctions and company-registry data and returns one unified risk view.</p>
+<div class="chips"><span>Python</span><span>REST API</span><span>OpenSanctions</span><span>Companies House</span><span>Render</span></div>
+<!-- TODO: replace the href below with your real repository link -->
+<a class="btn gh" href="https://github.com/PrettyEvangelin/Compliance-Checker" target="_blank" rel="noopener">GitHub repository</a>
+</div>
+<ul>
+<li>Built a <code>POST /screen</code> endpoint that checks a name against OpenSanctions (sanctions and PEP data) and the UK Companies House registry in one request.</li>
+<li>Wrote a normalizer that maps two very differently shaped vendor responses into one schema: source, entity name, risk score and flags.</li>
+<li>Scores risk 1 for sanctions targets, high-risk topics such as debarment or export control, and companies that aren’t active. Overall risk is the maximum across matches.</li>
+<li>Deployed on Render. Next steps: fuzzy name matching, graded scoring, case management, caching and authentication.</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section id="skills" class="alt">
+<div class="wrap">
+<div class="head"><h2>Toolkit</h2><p>Python first, plus what surrounds it.</p></div>
+<div class="py">
+<h3>Python, day to day</h3>
+<p>Analysis, APIs, ML and automation, all in one language.</p>
+<div class="chips"><span>Python</span><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>XGBoost</span><span>TensorFlow</span><span>FastAPI</span><span>Streamlit</span><span>FAISS</span><span>Sentence Transformers</span><span>RAG</span></div>
+</div>
+<div class="grid">
+<div class="card"><h3>Databases</h3><p>SQL, PostgreSQL, MySQL, Oracle SQL</p></div>
+<div class="card"><h3>Data pipelines</h3><p>ETL design, statistical analysis, Python scripts for automated reports and email delivery</p></div>
+<div class="card"><h3>Cloud and DevOps</h3><p>AWS (EC2, S3, Lambda), Docker, GitHub</p></div>
+<div class="card"><h3>Reporting</h3><p>Power BI, Excel, KPI dashboards</p></div>
+<div class="card"><h3>Also</h3><p>Java, RESTful API design, prompt engineering</p></div>
+</div>
+</div>
+</section>
+
+<section id="experience">
+<div class="wrap">
+<div class="head"><h2>Experience</h2></div>
+<div class="job">
+<div><h3>Data Analyst Intern</h3><time>Feb 2026 – Aug 2026</time></div>
+<div>
+<strong>Heartiest Mind Technologies Pvt. Ltd.</strong>
+<ul>
+<li>Analysed sales, customer and operational data with Python (pandas) and SQL to surface trends for data-driven decisions.</li>
+<li>Built and evaluated ML models that predict customer behaviour, checking reliability with accuracy, precision and recall.</li>
+<li>Designed Power BI dashboards with KPI visuals and interactive filters for cross-functional stakeholders.</li>
+<li>Worked with business teams to turn requirements into structured analytical outputs.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="education" class="alt">
+<div class="wrap">
+<div class="head"><h2>Education and recognition</h2></div>
+<div class="two">
+<div>
+<h3>PES Institute of Technology and Management</h3>
+<p>B.E. in Computer Science, 2022 – 2026. CGPA 8.8. Shivamogga, Karnataka.</p>
+<h3>Certifications</h3>
+<ul>
+<li>Google Analytics Certification, Google</li>
+<li>AWS Academy Cloud Foundations, AWS Academy</li>
+<li>Machine Learning Algorithms in 7 Days, Infosys Springboard</li>
+</ul>
+</div>
+<div>
+<h3>Achievements</h3>
+<ul>
+<li>Published a research paper on AI-based multimodal lie detection in IJSREM.</li>
+<li>Technical Coordinator, Entrepreneurship Development Cell (EDC).</li>
+<li>Participant in Smart India Hackathon, Accenture Hack2Skill Hackathon and TON Hackathon.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="wrap">
+<h2>Working on something in AI or ML?</h2>
+<p>I’d love to hear about it. Email is the fastest way to reach me.</p>
+<div class="btns" style="justify-content:center">
+<a class="btn dark" href="mailto:prettyevangelin04@gmail.com">Send an email</a>
+<button class="btn" id="copy" type="button">Copy email address</button>
+</div>
+<div class="links">
+<a href="https://linkedin.com/in/pretty-evangelin" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://github.com/PrettyEvangelin" target="_blank" rel="noopener">GitHub</a>
+<a href="tel:+917975909937">+91 7975909937</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer>© 2026 Pretty Evangelin. Karnataka, India.</footer>
+<div id="toast" role="status" aria-live="polite">Email copied</div>
+
+<script>
+// Mobile menu
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+menu.addEventListener('click',e=>{if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+// Highlight the nav link of the section in view
+const links=[...menu.querySelectorAll('a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}
+}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+
+// Copy email
+const toast=document.getElementById('toast');
+document.getElementById('copy').addEventListener('click',async()=>{
+  const email='prettyevangelin04@gmail.com';
+  try{await navigator.clipboard.writeText(email);toast.textContent='Email copied'}
+  catch(_){toast.textContent=email}
+  toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200);
+});
+</script>
+</body>
+</html>
